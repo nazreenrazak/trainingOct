@@ -1,0 +1,22 @@
+{% load crispy_forms_tags %}
+
+
+<form id="frm-example" method="post" enctype='multipart/form-data'>
+  
+  {% csrf_token %}
+  <legend>Delete Aktiviti</legend>
+  {% if aktiviti %}
+  	Adakah anda pasti mahu padam aktiviti ini : {{ aktiviti.tajuk }}?
+  <!-- {{ form|crispy }} -->
+  <hr>
+  <p class="text-center">
+    <button type="submit" name="submit_yes" value="Yes" class="btn btn-primary">Submit</button>
+    <a href="{% url 'Penganjur Home' %}" class="btn btn-primary">No</a>
+  </p> 
+  {% else %}  
+  	Maaf lah ye. takde dalam DB den.
+  {% endif %}
+  <p class="text-center">
+    <a href="{% url 'Penganjur Home' %}" class="btn btn-primary">Cancel</a>
+  </p> 
+</form>

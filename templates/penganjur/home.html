@@ -1,1 +1,24 @@
-<p> ni lah homepage Penganjur.. anjirrr </p>
+<p> Home </p>
+<table border="2">
+	<tr>
+		<th>Tajuk</th>
+		<th>Tempat</th>
+		<th>Penceramah</th>
+		<th>Had Peserta</th>
+		<th>Tindakan</th>
+	</tr>
+		
+
+{% for var in aktiviti %}
+	<tr>
+		<td>{{ var.tajuk }}</td>
+		<td>{{ var.tempat }}</td>
+		<td>{{ var.penceramah }}</td>
+		<td>{{ var.hadpeserta }}</td>
+		<td><a href = "{% url 'edit_aktiviti' var.pk %}"> Edit</a></td>
+		<td><a href = "{% url 'delete_aktiviti' var.pk %}"> Delete</a></td>
+	</tr>
+	{% endfor %}
+</table>
+
+<p><a href = "{% url 'add_aktiviti' %}"> Tambah Aktiviti</a>
